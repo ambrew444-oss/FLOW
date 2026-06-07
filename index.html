@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Минималистичный экран, где сообщения превращаются в мягкие облака."
+    />
+    <meta name="theme-color" content="#f7fcff" />
+    <title>Облака сообщений</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="sky-app" aria-label="Экран сообщений-облаков">
+      <section
+        class="cloud-field"
+        id="cloudField"
+        aria-label="Облака с сообщениями"
+        aria-live="polite"
+      ></section>
+
+      <form class="composer" id="messageForm">
+        <label class="sr-only" for="messageInput">Сообщение</label>
+        <input
+          id="messageInput"
+          name="message"
+          type="text"
+          maxlength="96"
+          autocomplete="off"
+          placeholder="Напишите сообщение..."
+          aria-label="Напишите сообщение"
+          aria-describedby="charCounter limitStatus"
+          required
+        />
+        <span class="char-counter" id="charCounter">0/96</span>
+        <button class="send-button" type="submit" aria-label="Отправить сообщение">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.5 12h14" />
+            <path d="m13.5 6 6 6-6 6" />
+          </svg>
+        </button>
+        <span class="limit-status" id="limitStatus" role="status" aria-live="polite"></span>
+      </form>
+    </main>
+
+    <script>
+      window.VIBE_API_URL = window.VIBE_API_URL || "";
+    </script>
+    <script src="script.js?v=fixed-bottom-row-v2"></script>
+  </body>
+</html>
